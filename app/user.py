@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     nickname = db.Column(db.String(20), nullable=False)
     contact_no = db.Column(db.String(15))
     is_activated = db.Column(db.Boolean, nullable=False)
-    #Todo: timestamp
+    start_date = db.Column(db.DateTime, server_default=db.func.now())
 
     def __init__(self, username, email, nickname, contact_no, id=None, is_activated=True):
         self.id = id
