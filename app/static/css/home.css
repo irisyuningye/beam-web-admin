@@ -3,23 +3,23 @@ body {
 }
 
  /* Customized container */
-.container-dashboard {
-	margin: 0 auto;
+.container {
+	margin: 30 auto;
 	max-width: 1280px;
 	width: 90%;
   }
   
-  @media only screen and (min-width: 601px) {
-	.container-dashboard {
-	  width: 85%;
+@media only screen and (min-width: 601px) {
+	.container {
+		width: 85%;
 	}
-  }
-  
-  @media only screen and (min-width: 993px) {
-	.container-dashboard {
-	  width: 85%;
+}
+
+@media only screen and (min-width: 993px) {
+	.container {
+		width: 85%;
 	}
-  }
+}
 
 .bs-stepper-content {
 	margin: 20 auto;
@@ -139,56 +139,6 @@ td img {
 	margin-top: 5px;
 }
 
-.books-available img {
-	width: 50px;
-	margin-top:5px;
-	height:70px;
-}
-
-.shipping_information_form .row  {
-	margin-left: 25px;
-}
-
-.books_in_circ {
-	display: flex;
-	margin: 5px;
-	flex-direction: column;
-
-}
-
-.books_in_circ .card-horizontal {
-	display: flex;
-	margin: 5px;
-	height: auto;	
-
-}
-
-.book_cover_thumbnail {
-	max-height: inherit;
-	width: auto;
-}
-
-.card-description {
-	overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;  
-	/*max-width: 780px;*/
-}
-
-.books_in_circ .card {
-	height: 176px;
-}
-
-.card .card-image {
-	padding-left: 20px;
-
-}
-
-.card .card-action {
-	border: none;
-}
-
 .material-icons {
 	float: left;
 }
@@ -218,20 +168,9 @@ button {
 }
 
 
-.btn .bookdetails {
+.btn {
 	padding-right: 20px;
 }
-
-.bookCover {
-	margin-top: 30px;
-	height: auto;
-	width: 200px;
-}
-
-.card.horizontal .card-image img{
-	width: 70px;
-}
-
 
 .tableContentStyle {
 	text-transform: capitalize;
@@ -241,22 +180,23 @@ button {
 	margin-top: 10px;
 }
 
-/* map style */
-#mapMain {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 /* navbar style */
-.nav {
-	text-align: right;
-	height: 70px;
-	line-height: 70px;
+
+nav {
+	color:black;
+  background-color: #fff;
+  width: 100%;
+  line-height: 56px;
 }
 
 nav .brand-logo {
 	position: relative;
+}
+
+.nav {
+	text-align: right;
+	height: 70px;
+	line-height: 70px;
 }
 
 .nav-wrapper {
