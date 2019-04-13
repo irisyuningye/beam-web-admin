@@ -26,3 +26,10 @@ def isUsernameUsed(username):
 def isEmailUsed(email):
     user = User.query.filter_by(email=email).first()
     return False if user is None else True
+    
+def validateLogin(username, password):
+    comparedUser = getUserByUsername(username)
+    if comparedUser is None or not check_password_hash(comparedUser.password_hash, password):
+        return False
+    login_user(comparedUser)
+    return True
