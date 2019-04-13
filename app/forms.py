@@ -8,13 +8,12 @@ from flask_material import Material
 class LoginForm(Form):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
 
 class SignUpForm(Form):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     email = EmailField('Email', validators = [DataRequired()])
     nickname = StringField('Nickname', validators=[DataRequired()])
-    phone = StringField('Phone')
+    phone = StringField('Phone', validators=[DataRequired()])
 
 

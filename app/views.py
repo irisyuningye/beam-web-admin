@@ -20,6 +20,8 @@ def signup():
         username = form.username.data
         email = form.email.data
         password = form.password.data
+        nickname = form.nickname.data
+        contact_no = form.phone.data
         if isUsernameUsed(username) is True:
             # in this case user with this username exists already
             flash("Username is already used. Please pick a different one.")
@@ -29,7 +31,7 @@ def signup():
             flash("Email is already used. Please pick a different one.")
             return render_template('signup.html', title = "Sign Up", form = form)
         # in case it does not exist
-        newUser = User(username, email)
+        newUser = User(username, email, nickname, contact_no)
         newUser.set_password(password)
         addToDatabase(newUser)
         login_user(newUser)
