@@ -36,7 +36,7 @@ def signup():
         addToDatabase(newUser)
         login_user(newUser)
         return redirect(url_for('index'))
-    return render_template('signup.html', title = "Sign Up", form = form)
+    return render_template('signup.html', title = "Sign Up", form = form, username = "Guest")
 
 
 @app.route('/login', methods=['GET', 'POST'])
