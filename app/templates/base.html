@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Test site</title>
+  <!-- import css stylesheet and components -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Nunito" rel="stylesheet">
+  <!-- import javascript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+  {% block additionallibraries_head %} {% endblock %}
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <header>
+  <!-- nav bar will be here -->
+  <p>here should be the nav bar</p>
+  </header>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script>
+  </script>
+</body>
+{% block additionallibraries_bottom %} {% endblock %}
+{% block variables %}{% endblock %}
+</html>
