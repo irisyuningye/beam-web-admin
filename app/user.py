@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     contact_no = db.Column(db.String(15))
     is_activated = db.Column(db.Boolean, nullable=False)
     start_date = db.Column(db.DateTime, server_default=db.func.now())
+    note = db.relationship("Note", backref="user")
 
     def __init__(self, username, email, nickname, contact_no, id=None, is_activated=True):
         self.id = id
