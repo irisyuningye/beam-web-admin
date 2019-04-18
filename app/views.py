@@ -1,9 +1,10 @@
 from flask import render_template, redirect, request, url_for, flash, json
-from app import app, models, login_manager, db, user
+from app import app, models, login_manager, db, user, note
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import *
 from .user import User
+from .note import Note
 from .forms import LoginForm, SignUpForm, NoteForm
 
 @app.route('/')
@@ -63,20 +64,21 @@ def logout():
 def unauthorized_handler():
     return redirect(url_for('login'))
 
+# TODO: Category drop down. Now it's hard coded "default_category"
 @app.route('/note', methods=['GET', 'POST'])
+@login_required
 def addNote():
     form = NoteForm()
-    # if form.validate_on_submit():
-    #     noteTitle = form.noteTitle.data
-    #     noteContent = form.noteContent.data
-    #     # newUser = User(username, email, nickname, contact_no)
-    #     # newUser.set_password(password)
-    #     # addToDatabase(newUser)
-    #     # login_user(newUser)
-    #     return redirect(url_for('index'))
-    return render_template('notes.html', title = "Add Secure Note", form = form, username = "Guest")
+    if form.validate_on_submit():
+        noteTitle = form.noteTitle.data
+        noteContent = form.noteContent.data
+        newNote = Note(noteTitle, noteContent, "default_category", current_user.id)
+        addToDatabase(newNote)
+        return redirect(url_for('share'))
+    return render_template('notes.html', title = "Add Secure Note", form = form, username = current_user.username)
 
 @app.route('/share', methods=['GET', 'POST'])
+@login_required
 def share():
     # form = NoteForm()
     # if form.validate_on_submit():
@@ -87,4 +89,4 @@ def share():
     #     # addToDatabase(newUser)
     #     # login_user(newUser)
     #     return redirect(url_for('index'))
-    return render_template('share.html', title = "Share", username = "Guest")
+    return render_template('share.html', title = "Share", username = current_user.username)
