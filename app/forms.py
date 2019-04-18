@@ -16,4 +16,7 @@ class SignUpForm(Form):
     nickname = StringField('Nickname', validators=[DataRequired()])
     phone = StringField('Phone', validators=[DataRequired()])
 
+class NoteForm(Form):           
+    noteTitle = StringField('Title', validators=[DataRequired()])
+    noteContent = PasswordField('Content', validators=[DataRequired()])
 

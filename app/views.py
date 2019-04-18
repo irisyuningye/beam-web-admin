@@ -4,7 +4,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import *
 from .user import User
-from .forms import LoginForm, SignUpForm
+from .forms import LoginForm, SignUpForm, NoteForm
 
 @app.route('/')
 def index():
@@ -62,3 +62,29 @@ def logout():
 @login_manager.unauthorized_handler
 def unauthorized_handler():
     return redirect(url_for('login'))
+
+@app.route('/note', methods=['GET', 'POST'])
+def addNote():
+    form = NoteForm()
+    # if form.validate_on_submit():
+    #     noteTitle = form.noteTitle.data
+    #     noteContent = form.noteContent.data
+    #     # newUser = User(username, email, nickname, contact_no)
+    #     # newUser.set_password(password)
+    #     # addToDatabase(newUser)
+    #     # login_user(newUser)
+    #     return redirect(url_for('index'))
+    return render_template('notes.html', title = "Add Secure Note", form = form, username = "Guest")
+
+@app.route('/share', methods=['GET', 'POST'])
+def share():
+    # form = NoteForm()
+    # if form.validate_on_submit():
+    #     noteTitle = form.noteTitle.data
+    #     noteContent = form.noteContent.data
+    #     # newUser = User(username, email, nickname, contact_no)
+    #     # newUser.set_password(password)
+    #     # addToDatabase(newUser)
+    #     # login_user(newUser)
+    #     return redirect(url_for('index'))
+    return render_template('share.html', title = "Share", username = "Guest")

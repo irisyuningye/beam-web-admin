@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h5>Add Secure Note</h5>
+<div>
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s4">
+                    {{ form.noteTitle(placeholder = "Title", class ="materialize-textarea icon_prefix2", id = "noteTitle") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s11">
+                    {{ form.noteContent(placeholder = "Content", class ="materialize-textarea icon_prefix2", id = "noteContent") }}
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="input-field col s12">
+                    <select>
+                    <option value="" disabled selected>Choose a category</option>
+                    <option value="1">Education</option>
+                    <option value="2">Entertainment</option>
+                    <option value="3">Finance</option>
+                    <option value="4">News/Reference</option>
+                    <option value="5">Shopping</option>
+                    <option value="6">Travel</option>
+                    <option value="7">Other</option>
+                    </select>
+                    <label>Category</label>
+                </div>
+            </div> -->
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+        <button class="btn waves-effect waves-light" type="submit" id = "addNote">Add Note
+        </button>
+        <button class="btn waves-effect waves-teal btn-flat" type="submit" id = "cancel">Cancel
+        </button>
+    </form>
+</div>
+
+{% endblock %}
