@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm as Form
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, IntegerField, FormField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, IntegerField, FormField, TextAreaField
 from wtforms.validators import DataRequired, Required, Length
 from wtforms.fields.html5 import EmailField
 from .models import *
@@ -18,5 +18,5 @@ class SignUpForm(Form):
 
 class NoteForm(Form):           
     noteTitle = StringField('Title', validators=[DataRequired()])
-    noteContent = PasswordField('Content', validators=[DataRequired()])
+    noteContent = TextAreaField('Content', validators=[DataRequired()])
 
