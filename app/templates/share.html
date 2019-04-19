@@ -1,12 +1,19 @@
 {% extends "base.html" %}
-
 {% block content %}
 <h5>Do you want to share?</h5>
-<div>
-        <button class="btn waves-effect waves-light" type="submit" id = "share">Yes
-        </button>
-        <button class="btn waves-effect waves-teal btn-flat" type="submit" id = "noShare">No
-        </button>
+<div class="row">
+    <button class="btn waves-effect waves-light" type="submit" id="share">Yes
+    </button>
+    <button class="btn waves-effect waves-teal btn-flat" type="submit" id="no-share">No
+    </button>
 </div>
 
+<div class="row" id="share-form" hidden>
+    <!-- Share Login form can be here -->
+</div>
+
+{% endblock %}
+
+{% block additionallibraries_bottom %} 
+<script type="text/javascript" src="{{ url_for('static', filename='js/share.js') }}"></script>
 {% endblock %}
