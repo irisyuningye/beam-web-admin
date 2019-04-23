@@ -19,4 +19,10 @@ class SignUpForm(Form):
 class NoteForm(Form):           
     noteTitle = StringField('Title', validators=[DataRequired()])
     noteContent = TextAreaField('Content', validators=[DataRequired()])
+    
+class AccountSaveForm(Form):
+    website_name = StringField('Website Name', validators=[DataRequired()])
+    website_url = StringField('Website URL', validators=[DataRequired()])
+    account_username = StringField('Account Name', validators=[DataRequired()])
+    account_password = PasswordField('Account Password', validators=[DataRequired()])
 
