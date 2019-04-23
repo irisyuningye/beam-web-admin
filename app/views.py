@@ -80,13 +80,14 @@ def addNote():
 @app.route('/share', methods=['GET', 'POST'])
 @login_required
 def share():
-    # form = NoteForm()
-    # if form.validate_on_submit():
-    #     noteTitle = form.noteTitle.data
-    #     noteContent = form.noteContent.data
-    #     # newUser = User(username, email, nickname, contact_no)
-    #     # newUser.set_password(password)
-    #     # addToDatabase(newUser)
-    #     # login_user(newUser)
-    #     return redirect(url_for('index'))
     return render_template('share.html', title = "Share", username = current_user.username)
+
+@app.route('/share-submit', methods=['POST'])
+def shareSubmit():
+    duration = request.form['duration']
+    print(duration)
+    return redirect(url_for('shareConfirm'))
+
+@app.route('/share-confirmed')
+def shareConfirm():
+    return render_template('confirm.html', title = "Sharing Complete", username = current_user.username)
